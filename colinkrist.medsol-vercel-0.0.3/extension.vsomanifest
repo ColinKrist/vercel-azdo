@@ -1,0 +1,18 @@
+{
+    "$schema": "https://json.schemastore.org/vss-extension.json",
+    "manifestVersion": 1,
+    "contributions": [
+        {
+            "id": "medsol-vercel",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "Task"
+            }
+        }
+    ],
+    "scopes": [],
+    "contributionTypes": []
+}

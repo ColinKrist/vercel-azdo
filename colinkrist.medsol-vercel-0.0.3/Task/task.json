@@ -1,0 +1,107 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "e854e632-4863-4ed2-abe5-6d31735cff08",
+    "name": "medsol-vercel",
+    "friendlyName": "Vercel CLI",
+    "description": "A helpful wrapper for Azure Devops around the Vercel CLI",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Colin Krist",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Echo $(samplestring)",
+    "inputs": [
+        {
+            "name": "token",
+            "type": "string",
+            "label": "Vercel Token",
+            "required": true,
+            "helpMarkDown": "Visit https://vercel.com/account/tokens and generate / reuse an existing token"
+        },
+        {
+            "name": "path",
+            "type": "filePath",
+            "label": "Project Directory",
+            "required": true,
+            "helpMarkDown": "Absolute path to the project directory"
+        },
+        {
+            "name": "apiUrl",
+            "type": "string",
+            "label": "Api Url",
+            "required": false,
+            "helpMarkDown": "https://vercel.com/docs/rest-api#endpoints/deployments/create-a-new-deployment"
+        },
+        {
+            "name": "debug",
+            "type": "boolean",
+            "label": "Debug Mode",
+            "required": false,
+            "helpMarkDown": "Enable debug output from Vercel CLI"
+        },
+        {
+            "name": "force",
+            "type": "boolean",
+            "label": "Force Mode",
+            "required": false,
+            "helpMarkDown": "Skips build cache"
+        },
+        {
+            "name": "isDirectory",
+            "type": "boolean",
+            "label": "Path = Directory?",
+            "required": false,
+            "helpMarkDown": "Optionally tell Vercel CLI you are giving the path a directory. Not necessary"
+        },
+        {
+            "name": "prebuilt",
+            "type": "boolean",
+            "label": "Prebuilt",
+            "required": false,
+            "helpMarkDown": "Typically with vercel build. See `vercel build` and Build Output API for more details."
+        },
+        {
+            "name": "rootDirectory",
+            "type": "boolean",
+            "label": "Root Directory",
+            "required": false,
+            "helpMarkDown": "https://vercel.com/docs/concepts/deployments/build-step#root-directory"
+        },
+        {
+            "name": "skipAutoDetectionConfirmation",
+            "type": "boolean",
+            "label": "Skip Auto Detection Confirmation",
+            "required": false,
+            "helpMarkDown": "Not recommended, https://vercel.com/docs/cli#commands/remove/unique-options/yes"
+        },
+        {
+            "name": "teamId",
+            "type": "string",
+            "label": "Team Id",
+            "required": false,
+            "helpMarkDown": "Tell Vercel which team you want this published under. If project Id is configured under team, this is unecessary. https://vercel.com/docs/project-configuration#global-configuration/config-json/current-team"
+        },
+        {
+            "name": "userAgent",
+            "type": "string",
+            "label": "user Agent",
+            "required": false,
+            "helpMarkDown": "Not recommended, determines which version of the API you want to use under the hood."
+        },
+        {
+            "name": "withCache",
+            "type": "string",
+            "label": "With HTTP Cache Headers",
+            "required": false,
+            "helpMarkDown": "Recommended not to set - optionally removes cache headers from the response"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "index.js"
+        }
+    }
+}

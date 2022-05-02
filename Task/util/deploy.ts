@@ -1,5 +1,5 @@
 import { setResult, setVariable, TaskResult } from 'azure-pipelines-task-lib'
-import { TaskParams } from './../models/TaskParams';
+import { TaskParams } from '../models/TaskParams';
 import { createDeployment, Deployment, DeploymentError } from '@vercel/client';
 
 export async function deploy(params: TaskParams) {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension=".js" ContentType="application/javascript"/>
+  <Default Extension=".ts" ContentType="text/plain"/>
+  <Default Extension=".json" ContentType="application/json"/>
+  <Default Extension=".png" ContentType="image/png"/>
+  <Default Extension=".yaml" ContentType="application/octet-stream"/>
+  <Default Extension=".vsixmanifest" ContentType="text/xml"/>
+  <Default Extension=".vsomanifest" ContentType="application/json"/>
+  <Override ContentType="text/plain" PartName="/Task/.taskkey"/>
+</Types>

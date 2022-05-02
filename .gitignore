@@ -2,3 +2,7 @@ testRepo
 node_modules
 
 *.js
+
+*.vsix
+
+.taskkey
