@@ -10,7 +10,7 @@
     "version": {
         "Major": 0,
         "Minor": 2,
-        "Patch": 1
+        "Patch": 2
     },
     "inputs": [
         {
@@ -27,6 +27,13 @@
             "required": true,
             "helpMarkDown": "Absolute path to the project directory",
             "defaultValue": "$(Pipeline.Workspace)"
+        },
+        {
+            "name": "projectId",
+            "type": "string",
+            "label": "With HTTP Cache Headers",
+            "required": false,
+            "helpMarkDown": "Unique identifier for project, typically found in local /vercel/project.json. If have this file committed to directory, ignore unless wanting to override"
         },
         {
             "name": "apiUrl",
@@ -54,6 +61,7 @@
             "type": "boolean",
             "label": "Path = Directory?",
             "required": false,
+            "defaultValue": "$(Pipeline.Workspace)",
             "helpMarkDown": "Optionally tell Vercel CLI you are giving the path a directory. Not necessary"
         },
         {

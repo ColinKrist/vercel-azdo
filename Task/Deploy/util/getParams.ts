@@ -22,5 +22,8 @@ export function getParams(): TaskParams {
   params.userAgent = getInput("userAgent", false);
   params.withCache = getInput("withCache", false) === "true";
 
+  // custom params
+  params.projectId == getInput("projectId", false);
+
   return params;
 }

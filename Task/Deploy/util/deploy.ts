@@ -3,15 +3,33 @@ const {
   setVariable,
   TaskResult,
 } = require("azure-pipelines-task-lib");
-import { createDeployment, Deployment, DeploymentError } from "@vercel/client";
+import {
+  createDeployment,
+  Deployment,
+  DeploymentError,
+  DeploymentOptions,
+} from "@vercel/client";
 import { TaskParams } from "../models/TaskParams";
 
 export async function deploy(params: TaskParams) {
   let deployment;
 
-  for await (const event of createDeployment({
+  const clientOptions = {
     ...params,
-  })) {
+  };
+
+  const deployOptions: DeploymentOptions = {
+    //@ts-ignore
+    project: params.projectId,
+  };
+
+  console.log(
+    `Deploying with createDeployment(clientOptions, deploymentOptions), clientOptions: ${JSON.stringify(
+      clientOptions
+    )} | deploymentOptions: ${JSON.stringify(deployOptions)}`
+  );
+
+  for await (const event of createDeployment(clientOptions, deployOptions)) {
     if (event.type != "hashes-calculated") {
       console.log(
         `[Vercel] - ${event.type} - ${JSON.stringify(event.payload)}`
@@ -20,8 +38,7 @@ export async function deploy(params: TaskParams) {
 
     // handle deployment events
     switch (event.type) {
-      case "created":
-      case "ready": {
+      case "created": {
         const payload: Deployment = event.payload;
         console.log(
           `Deployment: ${event.type} -> ${payload.url} | setting shared variable 'deploymentUrl'`
@@ -29,14 +46,18 @@ export async function deploy(params: TaskParams) {
         setVariable("deploymentUrl", payload.url);
         break;
       }
-      case "error":
-        {
-          const payload: DeploymentError = event.payload;
-          const message = `Vercel Error: ${payload.name} | ${payload.message} - code: ${payload.code}`;
-          console.error(message);
-          setResult(TaskResult.Failed, message);
-        }
-        break;
+      case "ready":
+        return;
+      case "error": {
+        const payload: DeploymentError = event.payload;
+        const message = `Vercel Error: ${payload.name} | ${payload.message} - code: ${payload.code}`;
+        console.error(message);
+        setResult(TaskResult.Failed, message);
+        return;
+      }
+      case "canceled":
+        setResult(TaskResult.Failed, "Build Canceled");
+        return;
     }
   }
 

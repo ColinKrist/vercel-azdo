@@ -19,7 +19,8 @@
     "create": "tfx extension create",
     "preinstall": "npm run deps",
     "webpack": "webpack --config webpack.config.js --progress",
-    "publish": "glob-exec --foreach \"**.vsix\" -- \"tfx extension publish --manifest-globals vss-extension.json --share-with ColinKrist --vsix {{file}}\""
+    "publish": "glob-exec --foreach \"**.vsix\" -- \"tfx extension publish --manifest-globals vss-extension.json --sharewith ColinKrist --vsix {{file}}\"",
+    "test:build:deploy": "node ./build/Task/Deploy/index.js"
   },
   "keywords": [],
   "author": "",
