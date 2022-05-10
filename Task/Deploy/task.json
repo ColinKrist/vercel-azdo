@@ -1,18 +1,17 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "e854e632-4863-4ed2-abe5-6d31735cff08",
-    "name": "medsol-vercel",
-    "friendlyName": "Vercel CLI",
-    "description": "A helpful wrapper for Azure Devops around the Vercel CLI",
+    "name": "vercel-azdo-deploy",
+    "friendlyName": "Vercel Deploy",
+    "description": "Deploys code path to Vercel. Most useful when used in tandem with a PR pipeline. Outputs 'deploymentUrl' variable.",
     "helpMarkDown": "",
     "category": "Utility",
     "author": "Colin Krist",
     "version": {
         "Major": 0,
-        "Minor": 1,
-        "Patch": 0
+        "Minor": 2,
+        "Patch": 1
     },
-    "instanceNameFormat": "Echo $(samplestring)",
     "inputs": [
         {
             "name": "token",
@@ -26,7 +25,8 @@
             "type": "filePath",
             "label": "Project Directory",
             "required": true,
-            "helpMarkDown": "Absolute path to the project directory"
+            "helpMarkDown": "Absolute path to the project directory",
+            "defaultValue": "$(Pipeline.Workspace)"
         },
         {
             "name": "apiUrl",

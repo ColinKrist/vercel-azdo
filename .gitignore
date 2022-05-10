@@ -2,7 +2,15 @@ testRepo
 node_modules
 
 *.js
+*.d.ts
+
+tsconfig.tsbuildinfo
 
 *.vsix
 
 .taskkey
+
+build
+
+!webpack.config.js
+!temp.js

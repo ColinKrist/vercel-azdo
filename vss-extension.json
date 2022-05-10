@@ -1,36 +1,46 @@
 {
     "$schema": "https://json.schemastore.org/vss-extension.json",
     "manifestVersion": 1,
-    "id": "medsol-vercel",
-    "name": "MedSol Vercel",
-    "version": "0.0.3",
+    "id": "vercel-azdo",
+    "name": "Vercel AzDo Pipelines Tools",
+    "version": "0.0.8",
     "publisher": "colinkrist",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "A helpful wrapper for Azure Devops around the Vercel CLI",
+    "description": "Set of Azure Devops Pipelines Utilities that unlocks using Vercel with Azure Devops using @vercel/client.",
     "categories": [
         "Azure Pipelines"
     ],
+    "tags": [
+        "Vercel",
+        "Continuous Delivery",
+        "Continuous Integration",
+        "DevOps",
+        "Release",
+        "Next.js",
+        "Now"
+    ],
     "icons": {
-        "default": "icon.png"
+        "default": "images/icon.png",
+        "large": "images/icon.png"
     },
     "files": [
         {
-            "path": "Task"
+            "path": "Task/Deploy"
         }
     ],
     "contributions": [
         {
-            "id": "medsol-vercel",
+            "id": "vercel-azdo-deploy",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "Task"
+                "name": "Task/Deploy"
             }
         }
     ]
