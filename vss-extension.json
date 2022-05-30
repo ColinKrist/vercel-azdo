@@ -2,8 +2,8 @@
     "$schema": "https://json.schemastore.org/vss-extension.json",
     "manifestVersion": 1,
     "id": "vercel-azdo",
-    "name": "Vercel AzDo Pipelines Tools",
-    "version": "0.0.9",
+    "name": "Vercel AzDo Integration",
+    "version": "0.1.0",
     "publisher": "colinkrist",
     "targets": [
         {
