@@ -24,19 +24,29 @@ stages:
           - task: CmdLine@2
             displayName: Enable Corepack
             inputs:
-              script: 'corepack enable'
-              workingDirectory: 'examples/react-cra'
+              script: "corepack enable"
+              workingDirectory: "examples/react-cra"
           - task: CmdLine@2
             displayName: Package Install
             inputs:
-              script: 'pnpm i'
-              workingDirectory: 'examples/react-cra'
+              script: "pnpm i"
+              workingDirectory: "examples/react-cra"
           - task: CmdLine@2
             displayName: Build
             inputs:
-              script: 'pnpm build'
-              workingDirectory: 'examples/react-cra'
+              script: "pnpm build"
+              workingDirectory: "examples/react-cra"
+          - task: CmdLine@2
+            displayName: Testing
+            inputs:
+              script: "ls && pwd"
+          - task: CmdLine@2
+            displayName: Test2
+            inputs:
+              script: "ls && pwd"
+              workingDirectory: "examples/react-cra"
+
           - task: vercel-azdo-deploy@0
             inputs:
-              token: '69CHaMaOXm0wLlqGQoDBX3TB'
-              path: '$(Pipeline.Workspace)/examples/react-cra'
+              token: "69CHaMaOXm0wLlqGQoDBX3TB"
+              path: "$(Pipeline.Workspace)/examples/react-cra"

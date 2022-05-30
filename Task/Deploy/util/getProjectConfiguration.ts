@@ -29,7 +29,7 @@ export function getProjectConfiguration(
   } catch (error) {
     setResult(
       TaskResult.Failed,
-      "failed to load /.vercel/project.json where required due to missing project identifier in params"
+      `Project path: ${path}/.vercel/project.json is missing. Fix path or provide Project Id via task parameter`
     );
     return null;
   }
