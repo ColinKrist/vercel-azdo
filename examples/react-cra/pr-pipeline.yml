@@ -32,11 +32,6 @@ stages:
               script: "pnpm i"
               workingDirectory: "examples/react-cra"
           - task: CmdLine@2
-            displayName: Build
-            inputs:
-              script: "pnpm build"
-              workingDirectory: "examples/react-cra"
-          - task: CmdLine@2
             displayName: Testing
             inputs:
               script: "ls && pwd"
