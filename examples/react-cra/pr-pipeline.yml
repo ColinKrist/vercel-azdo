@@ -31,11 +31,6 @@ stages:
             inputs:
               script: 'pnpm i'
               workingDirectory: 'examples/react-cra'
-          - task: CmdLine@2
-            displayName: Build
-            inputs:
-              script: 'pnpm build'
-              workingDirectory: 'examples/react-cra'
           - task: vercel-azdo-deploy@0
             inputs:
               token: '69CHaMaOXm0wLlqGQoDBX3TB'
