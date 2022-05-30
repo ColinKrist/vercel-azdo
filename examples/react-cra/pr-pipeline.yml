@@ -1,0 +1,40 @@
+trigger: none
+variables:
+  - group: ASE Sandbox
+  - name: cache_path
+    value: /home/vsts/.pnpm-store/v3
+stages:
+  - stage: prbuild
+    displayName: "PR"
+    pool: Azure Pipelines
+    jobs:
+      - job: PR
+        steps:
+          - task: UseNode@1
+            displayName: "Use Node"
+            inputs:
+              version: 18.x
+
+          - task: Cache@2
+            displayName: Cache Packages
+            inputs:
+              key: '"pnpm" | "$(Agent.OS)" | pnpm-lock.yaml'
+              restoreKeys: |
+                pnpm | "$(Agent.OS)"
+              path: $(cache_path)
+          - task: CmdLine@2
+            displayName: Enable Corepack
+            inputs:
+              script: corepack enable
+          - task: CmdLine@2
+            displayName: Package Install
+            inputs:
+              script: pnpm i
+          - task: CmdLine@2
+            displayName: Build
+            inputs:
+              script: pnpm build
+          - task: vercel-azdo-deploy@0
+            inputs:
+              token: "69CHaMaOXm0wLlqGQoDBX3TB"
+              path: "$(Pipeline.Workspace)"
