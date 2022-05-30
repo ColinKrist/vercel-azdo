@@ -1,6 +1,5 @@
 trigger: none
 variables:
-  - group: ASE Sandbox
   - name: cache_path
     value: /home/vsts/.pnpm-store/v3
 stages:
