@@ -17,10 +17,14 @@ stages:
           - task: Cache@2
             displayName: Cache Packages
             inputs:
-              key: '"pnpm" | "$(Agent.OS)" | pnpm-lock.yaml'
+              key: '"pnpm" | "$(Agent.OS)" | examples/react-cra/pnpm-lock.yaml'
               restoreKeys: |
                 pnpm | "$(Agent.OS)"
               path: $(cache_path)
+          - task: CmdLine@2
+            displayName: Change Directories
+            inputs:
+              script: cd examples/react-cra
           - task: CmdLine@2
             displayName: Enable Corepack
             inputs:
