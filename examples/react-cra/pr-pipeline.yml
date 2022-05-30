@@ -22,22 +22,21 @@ stages:
                 pnpm | "$(Agent.OS)"
               path: $(cache_path)
           - task: CmdLine@2
-            displayName: Change Directories
-            inputs:
-              script: cd examples/react-cra
-          - task: CmdLine@2
             displayName: Enable Corepack
             inputs:
-              script: corepack enable
+              script: 'corepack enable'
+              workingDirectory: 'examples/react-cra'
           - task: CmdLine@2
             displayName: Package Install
             inputs:
-              script: pnpm i
+              script: 'pnpm i'
+              workingDirectory: 'examples/react-cra'
           - task: CmdLine@2
             displayName: Build
             inputs:
-              script: pnpm build
+              script: 'pnpm build'
+              workingDirectory: 'examples/react-cra'
           - task: vercel-azdo-deploy@0
             inputs:
-              token: "69CHaMaOXm0wLlqGQoDBX3TB"
-              path: "$(Pipeline.Workspace)"
+              token: '69CHaMaOXm0wLlqGQoDBX3TB'
+              path: '$(Pipeline.Workspace)/examples/react-cra'
