@@ -10,7 +10,12 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "Set of Azure Devops Pipelines Utilities that unlocks using Vercel with Azure Devops using @vercel/client.",
+    "description": "Build and release your application on Vercel using this open source integration using the @vercel/client npm package.",
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
     "categories": [
         "Azure Pipelines"
     ],
@@ -42,6 +47,11 @@
             "properties": {
                 "name": "Task/Deploy"
             }
+        }
+    ],
+    "screenshots": [
+        {
+            "path": "images/1_test.png"
         }
     ]
 }
