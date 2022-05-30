@@ -45,7 +45,6 @@ stages:
             inputs:
               script: "ls && pwd"
               workingDirectory: "examples/react-cra"
-
           - task: vercel-azdo-deploy@0
             inputs:
               token: "69CHaMaOXm0wLlqGQoDBX3TB"
