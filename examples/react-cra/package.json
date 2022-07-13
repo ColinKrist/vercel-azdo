@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@7.1.7",
+  "packageManager": "pnpm@7.5.1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

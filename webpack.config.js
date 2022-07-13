@@ -14,6 +14,7 @@ module.exports = {
             patterns: [
                 { from: "./images", to: "images", context: "." },
                 { from: "./vss-extension.json", to: "vss-extension.json" },
+                { from: "./overview.md", to: "overview.md" },
                 {
                     from: "./Task",
                     globOptions: {

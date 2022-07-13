@@ -18,6 +18,8 @@ export function getProjectConfiguration(
     return null;
   }
 
+  console.log(`Loading configuration from project: ${path}`);
+
   try {
     const projectConfig: ProjectConfiguration = JSON.parse(
       readFileSync(`${path}/.vercel/project.json`, {
@@ -25,8 +27,12 @@ export function getProjectConfiguration(
       })
     );
 
+    console.log(`Loaded configuration from project: ${path}`);
+    console.log(JSON.stringify(projectConfig, null, 2));
+
     return projectConfig;
   } catch (error) {
+    console.error(error);
     setResult(
       TaskResult.Failed,
       `Project path: ${path}/.vercel/project.json is missing. Fix path or provide Project Id via task parameter`
