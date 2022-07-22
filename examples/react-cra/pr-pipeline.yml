@@ -1,7 +1,7 @@
 trigger: none
 variables:
   - name: cache_path
-    value: /home/vsts/.pnpm-store/v3
+    value: /home/vsts/.local/share/pnpm/store/v3
 stages:
   - stage: prbuild
     displayName: "PR"
