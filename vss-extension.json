@@ -2,15 +2,15 @@
     "$schema": "https://json.schemastore.org/vss-extension.json",
     "manifestVersion": 1,
     "id": "vercel-azdo",
-    "name": "Vercel AzDo Integration",
-    "version": "0.1.0",
+    "name": "Vercel for Azure DevOps Pipelines",
+    "version": "0.2.0",
     "publisher": "colinkrist",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "Build and release your application on Vercel using this open source integration using the @vercel/client npm package.",
+    "description": "Release web apps on Vercel using this open source integration that uses the @vercel/client npm package.",
     "content": {
         "details": {
             "path": "overview.md"

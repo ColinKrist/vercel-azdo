@@ -19,7 +19,7 @@
             "type": "string",
             "label": "Vercel Token",
             "required": true,
-            "helpMarkDown": "Visit https://vercel.com/account/tokens and generate / reuse an existing token"
+            "helpMarkDown": "Visit https://vercel.com/account/tokens to generate or to reuse an existing token"
         },
         {
             "name": "path",
@@ -27,14 +27,14 @@
             "label": "Project Directory",
             "required": true,
             "helpMarkDown": "Absolute path to the project directory",
-            "defaultValue": "$(Pipeline.Workspace)"
+            "defaultValue": "$(Build.SourcesDirectory)"
         },
         {
             "name": "projectId",
             "type": "string",
             "label": "Project Id",
             "required": false,
-            "helpMarkDown": "Unique identifier for project, typically found in local /.vercel/project.json. If have this file committed to directory, ignore unless wanting to override"
+            "helpMarkDown": "Unique identifier for project, typically found in /.vercel/project.json. Typically this file is added to .gitignore after adding Vercel to repo. Feel free to ignore that recommendation from them if you want to skip this part."
         },
         {
             "name": "apiUrl",
