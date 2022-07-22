@@ -1,6 +1,6 @@
 {
     "id": "vercel-azdo-test",
-    "name": "Vercel AzDo Pipelines Tools (Test)",
+    "name": "Vercel for Azure DevOps Pipelines (Dev)",
     "public": false,
     "publisher": "colinkrist"
 }
