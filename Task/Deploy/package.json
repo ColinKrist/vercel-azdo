@@ -21,6 +21,6 @@
     "@types/q": "^1.5.5",
     "mocha": "^9.2.2",
     "sync-request": "^6.1.0",
-    "typescript": "4.0.2"
+    "typescript": "4.7.4"
   }
 }
