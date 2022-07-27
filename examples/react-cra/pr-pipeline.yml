@@ -40,3 +40,7 @@ stages:
             inputs:
               token: "69CHaMaOXm0wLlqGQoDBX3TB"
               path: "$(Build.SourcesDirectory)/examples/react-cra"
+          - task: CreatePRCommentTask@1
+            inputs:
+              AuthType: "system"
+              Comment: "Deployed to Vercel: $('deploymentUrl')"

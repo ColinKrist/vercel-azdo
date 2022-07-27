@@ -3,7 +3,7 @@
     "manifestVersion": 1,
     "id": "vercel-azdo",
     "name": "Vercel for Azure DevOps Pipelines",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "colinkrist",
     "targets": [
         {
@@ -51,7 +51,10 @@
     ],
     "screenshots": [
         {
-            "path": "images/1_test.png"
+            "path": "images/pipeline-example.png"
+        },
+        {
+            "path": "images/cli-initial-setup.png"
         }
     ]
 }
