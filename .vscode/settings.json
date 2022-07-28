@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "example-projects"
+        "example-projects",
+        "Deploy Task"
     ]
 }

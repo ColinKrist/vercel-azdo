@@ -12,10 +12,13 @@ async function run() {
     const params = getParams();
     console.log(`params parsed: ${JSON.stringify(params)}`);
 
-    const config = getProjectConfiguration(
-      Array.isArray(params.path) ? params.path[0] : params.path,
-      params.projectId
-    );
+    let config;
+    if(!params.projectId) {
+      config = getProjectConfiguration(
+        Array.isArray(params.path) ? params.path[0] : params.path
+      );
+    }
+
     if (config) {
       console.log(`configuration parsed: ${JSON.stringify(config)}`);
     }
@@ -28,14 +31,14 @@ async function run() {
 
     await deploy({
       ...params,
-      projectId:
-        config && config.projectId ? config.projectId : params.projectId,
+      projectId: params.projectId ?? config?.projectId,
     });
 
     setResult(TaskResult.Succeeded, "Deployment succeeded.");
   } catch (err) {
+    console.error(err);
     // @ts-ignore
-    setResult(TaskResult.Failed, err.message);
+    setResult(TaskResult.Failed, err.stack);
   }
 }
 
