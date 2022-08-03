@@ -3,7 +3,7 @@
     "manifestVersion": 1,
     "id": "vercel-azdo",
     "name": "Vercel for Azure DevOps Pipelines",
-    "version": "0.3.0",
+    "version": "0.3.4",
     "publisher": "colinkrist",
     "targets": [
         {
