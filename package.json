@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "^10"
+  },
   "scripts": {
     "clean": "rimraf ./build && rimraf ./**.vsix",
     "build:release": "set NODE_OPTIONS=--openssl-legacy-provider && npm run clean && npm run deps && npm run compile && npm run deps:prune && webpack",

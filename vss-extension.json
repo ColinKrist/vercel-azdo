@@ -35,8 +35,15 @@
     "files": [
         {
             "path": "Task/Deploy"
+        },
+        {
+            "path": "images"
         }
     ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/ColinKrist/vercel-azdo"
+    },
     "contributions": [
         {
             "id": "vercel-azdo-deploy",
@@ -51,10 +58,10 @@
     ],
     "screenshots": [
         {
-            "path": "images/pipeline-example.png"
+            "path": "images/cli-initial-setup.png"
         },
         {
-            "path": "images/cli-initial-setup.png"
+            "path": "images/create_token.png"
         }
     ]
 }

@@ -8,6 +8,9 @@
   },
   "keywords": [],
   "author": "",
+  "engines": {
+    "node": "^10"
+  },
   "license": "ISC",
   "dependencies": {
     "@types/node-fetch": "2",
