@@ -3,7 +3,7 @@
     "manifestVersion": 1,
     "id": "vercel-azdo",
     "name": "Vercel for Azure DevOps Pipelines",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "publisher": "colinkrist",
     "targets": [
         {
@@ -35,6 +35,10 @@
     "files": [
         {
             "path": "Task/Deploy"
+        },
+        {
+            "path": "images",
+            "addressable": true
         }
     ],
     "contributions": [
@@ -49,6 +53,10 @@
             }
         }
     ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/ColinKrist/vercel-azdo"
+    },
     "screenshots": [
         {
             "path": "images/pipeline-example.png"

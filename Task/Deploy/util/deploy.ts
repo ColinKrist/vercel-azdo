@@ -56,6 +56,7 @@ export async function deploy(params: TaskParams) {
         return;
       }
       case "canceled":
+        console.error(`Deployment: ${event.type}`);
         setResult(TaskResult.Failed, "Build Canceled");
         return;
     }
