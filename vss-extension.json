@@ -37,7 +37,8 @@
             "path": "Task/Deploy"
         },
         {
-            "path": "images"
+            "path": "images",
+            "addressable": true
         }
     ],
     "repository": {
@@ -56,6 +57,10 @@
             }
         }
     ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/ColinKrist/vercel-azdo"
+    },
     "screenshots": [
         {
             "path": "images/cli-initial-setup.png"

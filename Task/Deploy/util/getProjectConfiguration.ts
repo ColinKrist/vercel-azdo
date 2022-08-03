@@ -4,21 +4,15 @@ import { setResult, TaskResult } from "azure-pipelines-task-lib";
 import { ProjectConfiguration } from "../models/ProjectConfiguration";
 
 export function getProjectConfiguration(
-  path: string,
-  projectId?: string
+  path: string
 ): ProjectConfiguration | null {
   if (!path) {
+    console.error("path is required");
+
     return null;
   }
 
-  if (projectId) {
-    console.log(
-      `ProjectId provided, skipping loading configuration from project. Id: ${projectId}`
-    );
-    return null;
-  }
-
-  console.log(`Loading configuration from project: ${path}`);
+  console.log(`Loading configuration from project: ${path}/.vercel/project.json`);
 
   try {
     const projectConfig: ProjectConfiguration = JSON.parse(
@@ -27,7 +21,7 @@ export function getProjectConfiguration(
       })
     );
 
-    console.log(`Loaded configuration from project: ${path}`);
+    console.log(`Loaded configuration from project: ${path}/.vercel/project.json`);
     console.log(JSON.stringify(projectConfig, null, 2));
 
     return projectConfig;
