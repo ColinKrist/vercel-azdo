@@ -41,8 +41,8 @@ stages:
               token: "69CHaMaOXm0wLlqGQoDBX3TB"
               path: "$(Build.SourcesDirectory)/examples/react-cra"
             name: "VercelDeploy" # because we're going to depend on it, we need to name the step
-          - script: echo $(VercelDeploy.deploymentUrl) # this step uses the output variable
+          - script: echo $(deploymentUrl) # this step uses the output variable
           - task: CreatePRCommentTask@1
             inputs:
               AuthType: "system"
-              Comment: "Deployed to Vercel: $(VercelDeploy.deploymentUrl)"
+              Comment: "Deployed to Vercel: $(deploymentUrl)"
