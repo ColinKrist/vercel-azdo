@@ -1,6 +1,6 @@
 {
   "name": "medsol-vercel",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "",
   "engines": {
-    "node": "^10"
+    "node": "^16"
   },
   "license": "ISC",
   "dependencies": {
@@ -19,6 +19,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
     "@types/mocha": "^9.1.1",
     "@types/node": "^17.0.31",
     "@types/q": "^1.5.5",

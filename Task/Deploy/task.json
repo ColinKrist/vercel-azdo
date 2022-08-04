@@ -10,7 +10,7 @@
     "version": {
         "Major": 0,
         "Minor": 3,
-        "Patch": 7
+        "Patch": 8
     },
     "preview": true,
     "inputs": [
@@ -108,7 +108,7 @@
         }
     ],
     "execution": {
-        "Node10": {
+        "Node16": {
             "target": "index.js"
         }
     }
