@@ -7,7 +7,7 @@ specifiers:
   glob-exec: ^0.1.1
   glob-parent: '>=5.1.2'
   rimraf: ^3.0.2
-  tfx-cli: 0.11.0
+  tfx-cli: 0.12.0
   typescript: ^4.7.4
   webpack: 4.46.0
   webpack-cli: ^4.9.2
@@ -19,7 +19,7 @@ devDependencies:
   glob-exec: 0.1.1
   glob-parent: 6.0.2
   rimraf: 3.0.2
-  tfx-cli: 0.11.0
+  tfx-cli: 0.12.0
   typescript: 4.7.4
   webpack: 4.46.0_webpack-cli@4.10.0
   webpack-cli: 4.10.0_webpack@4.46.0
@@ -313,6 +313,12 @@ packages:
     hasBin: true
     dev: true
 
+  /acorn/8.8.0:
+    resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+    dev: true
+
   /aggregate-error/3.1.0:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
     engines: {node: '>=8'}
@@ -358,6 +364,8 @@ packages:
     dependencies:
       micromatch: 3.1.10
       normalize-path: 2.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -371,7 +379,7 @@ packages:
     optional: true
 
   /app-root-path/1.0.0:
-    resolution: {integrity: sha1-LHKZF0vGHLhv46SnmOAeSTt9U30=}
+    resolution: {integrity: sha512-OKap/l8oElrynRMEbtwubVW5M5G16LKz9Wxo0DYBmce595lao0EbmD4O82j7qo9yukVWMTDriWvgrbt6yPnb9A==}
     dev: true
 
   /aproba/1.2.0:
@@ -395,7 +403,7 @@ packages:
     dev: true
 
   /archiver/2.0.3:
-    resolution: {integrity: sha1-tDYLtYSvFDeZGUJxbyHXxSPR270=}
+    resolution: {integrity: sha512-TqHyk3if+6c3elGaLZu+wPMnaY2hm8PYmgmt1J34NZlFyHKwTiSugJFLMfb0K1xbYAgRtDJjjyW3T2p2B1f//g==}
     engines: {node: '>= 4'}
     dependencies:
       archiver-utils: 1.3.0
@@ -468,10 +476,6 @@ packages:
     resolution: {integrity: sha512-z/WhQ5FPySLdvREByI2vZiTWwCnF0moMJ1hK9YQwDTHKh6I7/uSckMetoRGb5UBZPC1z0jlw+n/XCgjeH7y1AQ==}
     dev: true
     optional: true
-
-  /async/1.5.2:
-    resolution: {integrity: sha512-nSVgobk4rv61R9PUSDtYt7mPVB2olxNR5RWJcAsH676/ef11bUZwvu7+RGYrYauVdDPcO519v68wRhXQtxsV9w==}
-    dev: true
 
   /async/2.6.4:
     resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
@@ -609,6 +613,8 @@ packages:
       snapdragon-node: 2.1.1
       split-string: 3.1.0
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /braces/3.0.2:
@@ -736,7 +742,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -760,11 +766,13 @@ packages:
       minipass-pipeline: 1.2.4
       mkdirp: 1.0.4
       p-map: 4.0.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 3.0.2
       ssri: 8.0.1
       tar: 6.1.11
       unique-filename: 1.1.1
+    transitivePeerDependencies:
+      - bluebird
     dev: true
 
   /cache-base/1.0.1:
@@ -834,6 +842,8 @@ packages:
       upath: 1.2.0
     optionalDependencies:
       fsevents: 1.2.13
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -1029,6 +1039,8 @@ packages:
       serialize-javascript: 5.0.1
       webpack: 4.46.0_webpack-cli@4.10.0
       webpack-sources: 1.4.3
+    transitivePeerDependencies:
+      - bluebird
     dev: true
 
   /core-util-is/1.0.3:
@@ -1120,7 +1132,7 @@ packages:
     dev: true
 
   /dateformat/1.0.11:
-    resolution: {integrity: sha1-8ny+56ASu/uC6gUVYtOXf2CT27E=}
+    resolution: {integrity: sha512-5zcI+Qoul0QgiCcjzsobs9G1c+vHCNaYB2NGa57ZbVnP7bZeKJJgoM/K+I/obaHAmyEL0J8hJafbQ+HFSZnzZA==}
     hasBin: true
     dependencies:
       get-stdin: 9.0.0
@@ -1129,6 +1141,11 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
     dev: true
@@ -1379,6 +1396,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /extend-shallow/2.0.1:
@@ -1408,6 +1427,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eyes/0.1.8:
@@ -2167,7 +2188,7 @@ packages:
     dev: true
 
   /json-lexer/1.1.1:
-    resolution: {integrity: sha1-vT7V1+Vgudma0iNPKMpwb7N3t9Q=}
+    resolution: {integrity: sha512-kdpvcH1gqYXQEAVFxVwIWZKihrS0o9SjbwW2v8+0p6HA/YSMk5c4BkXdMiz/kDz2QW0XlOSkFKrJsC9KL0Mb5g==}
     dev: true
 
   /json-parse-better-errors/1.0.2:
@@ -2414,6 +2435,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /micromatch/4.0.5:
@@ -2599,6 +2622,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /neo-async/2.6.2:
@@ -2928,8 +2953,15 @@ packages:
     engines: {node: '>= 0.6.0'}
     dev: true
 
-  /promise-inflight/1.0.1:
+  /promise-inflight/1.0.1_bluebird@3.7.2:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
     dev: true
 
   /promise/8.1.0:
@@ -3102,6 +3134,8 @@ packages:
       graceful-fs: 4.2.10
       micromatch: 3.1.10
       readable-stream: 2.3.7
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -3418,6 +3452,8 @@ packages:
       source-map: 0.5.7
       source-map-resolve: 0.5.3
       use: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /source-list-map/2.0.1:
@@ -3657,19 +3693,19 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
+      acorn: 8.8.0
       commander: 2.20.3
       source-map: 0.6.1
       source-map-support: 0.5.21
     dev: true
 
-  /tfx-cli/0.11.0:
-    resolution: {integrity: sha512-2dFEjwsKz7HZDhnCXlIzUCTnYyFGd7YYCoG5m1SEcemcg4BFt5DW1gge+qUc7cWZpAXdLhN6XJR42vPncJqn3A==}
+  /tfx-cli/0.12.0:
+    resolution: {integrity: sha512-CtGVDasX20zFyIUScegXFuIXmqJsnNQa/Tiv5bXB9anzU1xZSQoSVa5XL2DlMtEsuu16+BcDxwc+bpqguUjBCg==}
     engines: {node: '>=8.0.0'}
     hasBin: true
     dependencies:
       app-root-path: 1.0.0
       archiver: 2.0.3
-      async: 1.5.2
       azure-devops-node-api: 10.2.2
       clipboardy: 1.2.3
       colors: 1.3.3
@@ -3726,12 +3762,12 @@ packages:
     dev: true
 
   /tinytim/0.1.1:
-    resolution: {integrity: sha1-yWih5VWa2VUyJO92J7qzTjyu+Kg=}
+    resolution: {integrity: sha512-NIpsp9lBIxPNzB++HnMmUd4byzJSVbbO4F+As1Gb1IG/YQT5QvmBDjpx8SpDS8fhGC+t+Qw8ldQgbcAIaU+2cA==}
     engines: {node: '>= 0.2.0'}
     dev: true
 
   /tmp/0.0.26:
-    resolution: {integrity: sha1-nvqCDOKhD4H4l5VVus4/FVJs4fI=}
+    resolution: {integrity: sha512-XYEM7aFncfdEdU4/3jUG2edvFAryxtKbahJXTv8WK34MoOmexbbyNyneT3nY8yPVD3h0J1b5fL6kqlDoyuebQQ==}
     engines: {node: '>=0.4.0'}
     dependencies:
       os-tmpdir: 1.0.2
@@ -3778,7 +3814,7 @@ packages:
     dev: true
 
   /tracer/0.7.4:
-    resolution: {integrity: sha1-d/oEN8+Ct2vNvNRLhHRHcuWeUlk=}
+    resolution: {integrity: sha512-yG3Yb4ztlE1CZHNRWcBqjRIVSCXd8fx7HvL9gvlC37tpPrG3I5skNAY3mQApWeQiw0/3m83JWbfagwOAlmP/ww==}
     engines: {node: '>= 0.10.0'}
     dependencies:
       colors: 1.0.3
@@ -3953,6 +3989,8 @@ packages:
     requiresBuild: true
     dependencies:
       chokidar: 2.1.8
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -3964,6 +4002,8 @@ packages:
     optionalDependencies:
       chokidar: 3.5.3
       watchpack-chokidar2: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /webpack-cli/4.10.0_webpack@4.46.0:
@@ -4053,6 +4093,8 @@ packages:
       watchpack: 1.7.5
       webpack-cli: 4.10.0_webpack@4.46.0
       webpack-sources: 1.4.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /which-boxed-primitive/1.0.2:
@@ -4085,7 +4127,7 @@ packages:
     dev: true
 
   /winreg/0.0.12:
-    resolution: {integrity: sha1-BxBVVLoanQiXklHRKUdb/64wBrc=}
+    resolution: {integrity: sha512-typ/+JRmi7RqP1NanzFULK36vczznSNN8kWVA9vIqXyv8GhghUlwhGp1Xj3Nms1FsPcNnsQrJOR10N58/nQ9hQ==}
     dev: true
 
   /winston/2.4.6:
