@@ -43,7 +43,7 @@ export async function deploy(params: TaskParams) {
         console.log(
           `Deployment: ${event.type} -> ${payload.url} | setting shared variable 'deploymentUrl'`
         );
-        setVariable("deploymentUrl", payload.url);
+        setVariable("deploymentUrl", payload.url, false, true);
         break;
       }
       case "ready":

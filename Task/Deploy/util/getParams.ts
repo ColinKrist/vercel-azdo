@@ -1,11 +1,19 @@
 import { getInput } from "azure-pipelines-task-lib/task";
 import { TaskParams } from "../models/TaskParams";
 
-const getInputLogged = (name: string, required: boolean): string | undefined => {
-  const value = getInput(name, required);
-  console.log(`${name}: ${value}`);
-  return value;
-}
+const getInputLogged = (
+  name: string,
+  required: boolean
+): string | undefined => {
+  try {
+    const value = getInput(name, required);
+    console.log(`${name}: ${value}`);
+    return value;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 
 export function getParams(): TaskParams {
   const params: TaskParams = {

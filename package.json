@@ -1,8 +1,11 @@
 {
   "name": "medsol-vercel",
-  "version": "1.0.0",
+  "version": "0.3.9",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "^16"
+  },
   "scripts": {
     "clean": "rimraf ./build && rimraf ./**.vsix",
     "build:release": "set NODE_OPTIONS=--openssl-legacy-provider && npm run clean && npm run deps && npm run compile && npm run deps:prune && webpack",
@@ -15,12 +18,12 @@
     "deps:prune:tasks": "glob-exec --parallel --foreach \"Task/*/tsconfig.json\" -- \"cd {{file.dir}} && npm prune --production --no-update-notifier --no-progress\"",
     "compile": "npm run compile:tasks",
     "compile:tasks": "glob-exec \"Task/*/tsconfig.json\" -- \"tsc -b {{files.join(' ')}}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "pnpm build:release &&  pnpm test:run",
     "create": "tfx extension create",
     "preinstall": "npm run deps",
     "webpack": "webpack --config webpack.config.js --progress",
     "publish": "glob-exec --foreach \"**.vsix\" -- \"tfx extension publish --manifest-globals vss-extension.json --sharewith ColinKrist --vsix {{file}}\"",
-    "test:build:deploy": "node ./build/Task/Deploy/index.js"
+    "test:run": "node ./build/Task/Deploy/index.js"
   },
   "keywords": [],
   "author": "",

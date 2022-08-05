@@ -9,8 +9,8 @@
     "author": "Colin Krist",
     "version": {
         "Major": 0,
-        "Minor": 2,
-        "Patch": 5
+        "Minor": 3,
+        "Patch": 9
     },
     "preview": true,
     "inputs": [
@@ -108,7 +108,7 @@
         }
     ],
     "execution": {
-        "Node10": {
+        "Node16": {
             "target": "index.js"
         }
     }
