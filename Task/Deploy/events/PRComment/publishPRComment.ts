@@ -3,11 +3,17 @@ import { client } from "../../azdoRepoClient";
 import { findVercelPRComment } from "./findVercelPRComment";
 import { getNewCommentStatus } from "./getNewCommentStatus";
 import { getPRCommentData, PullRequestCommentsData } from "./getPRCommentData";
+import { isSupportedProvider } from "./isPRCommentSupported";
 
 export const publishPRComment = async (
   event?: Deployment,
   error?: DeploymentError
 ) => {
+  if (!isSupportedProvider()) {
+    console.log("* PRComment.publishPRComment: not supported provider");
+    return;
+  }
+
   const azdoClient = new client();
   const comments = await azdoClient.getComments();
 
