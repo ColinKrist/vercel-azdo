@@ -13,7 +13,7 @@ export const publishPRComment = async (
 
   const commentDTO: PullRequestCommentsData = {
     name: event?.name ?? "",
-    status: event?.state ?? "",
+    status: event?.readyState ?? "",
     updatedAt: event?.buildingAt ?? event?.createdAt ?? -Infinity,
     //@ts-ignore - this isn't on the type but is on the json response
     inspectorUrl: event?.inspectorUrl ?? "",

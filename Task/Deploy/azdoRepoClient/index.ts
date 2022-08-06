@@ -28,16 +28,16 @@ export class client {
   public async getComments(): Promise<CommentData> {
     const gitApiPromise: IGitApi = await this.getGitApi();
 
-    const result: GitPullRequestCommentThread[] =
+    const threads: GitPullRequestCommentThread[] =
       await gitApiPromise.getThreads(
         this.repositoryId,
         this.pullRequestId,
         this.project
       );
 
-    console.log(JSON.stringify(result));
+    console.log(JSON.stringify(threads));
 
-    return client.convertPullRequestComments(result);
+    return client.convertPullRequestComments(threads);
   }
 
   public async createComment(
@@ -112,41 +112,46 @@ export class client {
 
   /**
    * Translate API data to our model.
-   * @param comments
+   * @param threads
    * @returns
    */
   private static convertPullRequestComments(
-    comments: GitPullRequestCommentThread[]
+    threads: GitPullRequestCommentThread[]
   ): CommentData {
     const result: CommentData = new CommentData();
 
-    comments.forEach((value: GitPullRequestCommentThread): void => {
-      const id: number = value.id ?? 0;
-      const comments: Comment[] | undefined = value.comments;
+    threads.forEach((thread: GitPullRequestCommentThread): void => {
+      const id: number = thread.id ?? 0;
+      const comments: Comment[] | undefined = thread.comments;
       if (comments === undefined) {
         return;
       }
 
-      const content: string | undefined = comments[0]?.content;
-      if (content === undefined || content === "") {
+      const initialThreadComment: string | undefined = comments[0]?.content;
+      if (initialThreadComment === undefined || initialThreadComment === "") {
         return;
       }
 
-      const status: CommentThreadStatus =
-        value.status ?? CommentThreadStatus.Unknown;
+      const threadStatus: CommentThreadStatus =
+        thread.status ?? CommentThreadStatus.Unknown;
 
-      if (value.threadContext === null || value.threadContext === undefined) {
+      if (thread.threadContext === null || thread.threadContext === undefined) {
         result.pullRequestComments.push(
-          new PullRequestCommentData(id, content, status)
+          new PullRequestCommentData(id, initialThreadComment, threadStatus)
         );
       } else {
-        const fileName: string | undefined = value.threadContext.filePath;
+        const fileName: string | undefined = thread.threadContext.filePath;
         if (fileName === undefined || fileName.length <= 1) {
           return;
         }
 
         result.fileComments.push(
-          new FileCommentData(id, content, fileName.substring(1), status)
+          new FileCommentData(
+            id,
+            initialThreadComment,
+            fileName.substring(1),
+            threadStatus
+          )
         );
       }
     });

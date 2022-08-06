@@ -1,17 +1,20 @@
 import { Localizations } from "../../localization";
-import CommentData from "../../models/PullRequests/CommentData";
-import FileCommentData from "../../models/PullRequests/FileCommentData";
 import { localizationFile, localizationPath } from "../../localization/index";
+import CommentData from "../../models/PullRequests/CommentData";
+import PullRequestCommentData from "../../models/PullRequests/PullRequestCommentData";
 
 export const findVercelPRComment = (
   comments: CommentData
-): FileCommentData | null => {
+): PullRequestCommentData | null => {
   const loc = new Localizations(localizationPath, localizationFile);
 
-  for (let index = 0; index < comments.fileComments.length; index++) {
-    const element = comments.fileComments[index];
+  for (let index = 0; index < comments.pullRequestComments.length; index++) {
+    const element = comments.pullRequestComments[index];
 
-    if (element?.content.startsWith(loc.getLocalization("comment.header"))) {
+    if (
+      element &&
+      element?.content.startsWith(loc.getLocalization("comment.header"))
+    ) {
       // matched comment header - update comment with new content
       return element;
     }
