@@ -1,19 +1,16 @@
-const { setResult, TaskResult } = require("azure-pipelines-task-lib/task");
-console.log("after require");
+import { publishDeploymentEvent } from "./events/publishDeploymentEvent";
 import {
-  getParams,
-  validateParams,
-  setFailedResults,
   deploy,
+  getParams,
   getProjectConfiguration,
+  setFailedResults,
+  validateParams,
 } from "./util";
-console.log("after import");
+const { setResult, TaskResult } = require("azure-pipelines-task-lib/task");
 
 async function run() {
   try {
-    console.log("before getParams");
     const params = getParams();
-    console.log(`params parsed: ${JSON.stringify(params)}`);
 
     let config;
     if (!params.projectId) {
@@ -41,10 +38,13 @@ async function run() {
       return;
     }
 
-    await deploy({
-      ...params,
-      projectId: params.projectId ?? config?.projectId,
-    });
+    await deploy(
+      {
+        ...params,
+        projectId: params.projectId ?? config?.projectId,
+      },
+      publishDeploymentEvent
+    );
 
     setResult(TaskResult.Succeeded, "Deployment succeeded.");
   } catch (err) {
