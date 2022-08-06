@@ -1,0 +1,8 @@
+{
+    "comment.title": "# 🔼 Vercel Deployment",
+    "comment.break": "",
+    "comment.table.title": "| Name | Status | Link | Updated |",
+    "comment.table.break": "| - | - | - | - |",
+    "comment.table.row": "| {name} | {status} ([Inspect]({inspectorUrl})) | [Preview]({url}) | {updatedAt} |",
+    "comment.footer": "_Functionality provided by [vercel-azdo](https://github.com/ColinKrist/vercel-azdo) leveraging [@vercel/client](https://www.npmjs.com/package/@vercel/client)_"
+}
