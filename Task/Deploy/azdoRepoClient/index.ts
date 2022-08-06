@@ -168,7 +168,7 @@ export class client {
     this.initPRVars();
 
     const accessToken: string = validateVariable(
-      "SYSTEM_ACCESSTOKEN",
+      "SYSTEM_ACCESS_TOKEN",
       "client.getGitApi()"
     );
     const authHandler: IRequestHandler =
