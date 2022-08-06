@@ -17,29 +17,22 @@ Yes, this extension is currently being [dogfooded](https://www.techopedia.com/de
 About Vercel: [link🔗](https://vercel.com/docs)
 
 Ever stumble upon a repo on Github and see one of these bad boys?
-
+> Picture:
 ![alt](images/github-vercel-example.png)
 
 They're badass - and now anyone using this Task (or roll your own - source code is MIT) something like this can be done pretty easily.
 
 ### What this extension / step does
 
-This extension / "Task Deploy" step pushes code to Vercel and then exposes the final url as a shared pipeline variable. This can then be consumed by something like:
+#### Deploy to Vercel
 
-| Name | Link | Author(s) |
-| - | - | - |
-| Create Pull Request Comment | [link](https://github.com/microsoft/CSEDevOps/tree/main/CreatePrComment) | Microsoft's CSE Dev Team |
+The primary functionality that this provides is to publish lambdas, or web builds to Vercel when running the PR CI or your standard pipeline.
+#### PR Comment
 
-which can then create comments for you every time the PR updates. Now, this ain't perfect, may be a bit spammy. PR Metrics - another great extension OSS'ed from within MS for Azure Repos maintains a single comment.
+To greater improve the PR experience, this extension also creates and updates a single comment on your PR with the latest PR build. It also exposes the current status of the Vercel deployment from the PR comment itself _\*chef kiss\*_.
 
-For now, `deploymentUrl` is set for usage by the consumer of the step!
-
-### What this extension / step does NOT do
-
-Provide a PR comment with the deployment link, and have it automatically update with the newest link.
-
-> 🧚‍♀️ TODO? Consider pitching in a PR to do this for us!
-
+> Picture:
+ ![alt](images/pr-comment.png)
 
 ---
 
@@ -82,47 +75,11 @@ package rehydration / download
     workingDirectory: "examples/react-cra"
 - task: vercel-azdo-deploy@0
   inputs:
-    # API token - not the projectId, this can be generated once and shared across projects
+    # API token - (not the projectId) this can be generated once and shared across projects
     # ⚠ definitely recommend not plain texting this and using a pipeline variable ;)
     token: "69CHaMaOXm0wLlqGQoDBX3TB"
-    # default is the pipeline part - here's an example possibly to be used within a monorepo
+    # default is Build.SourceDirectory. Provided is an example for a nested repo, or for a monorepo (only supports 1 deployment from a monorepo at this time... TODO)
     path: "$(Build.SourcesDirectory)/examples/react-cra"
-```
-
----
-
-## Recommended patterns / recipes
-
-### Deploy and comment on PR creation / update
-
-> The most familiar experience for anyone coming from Github, Gitlab, or Bitbucket
-
-Covered in [What this extension does NOT do](#what-this-extension--step-does-not-do), comments on a PR are currently not handled by the extension / Task. Here's how to do a simple implementation that'll post a new comment whenever a PR is opened, and when new updates are pushed.
-
-```yaml
-... nodeJS setup,
-package manager install,
-package caching? (I hope so it's 2022),
-package rehydration / download
-...
-
-# Consumer of this step MUST build app prior to trying to upload it
-# Vercel can recognize these intracies typically, but in case it doesn't go here to learn about to configuring the project output directory within Vercel
-# https://vercel.com/docs/concepts/deployments/configure-a-build#build-and-development-settings
-- task: CmdLine@2
-  displayName: Build
-  inputs:
-    script: "pnpm build"
-    workingDirectory: "examples/react-cra"
-- task: vercel-azdo-deploy@0
-  inputs:
-    # API token - not the projectId, this can be generated once and shared across projects
-    # ⚠ definitely recommend not plain texting this and using a pipeline variable ;)
-    token: "69CHaMaOXm0wLlqGQoDBX3TB"
-    # default is the pipeline part - here's an example possibly to be used within a monorepo
-    path: "$(Build.SourcesDirectory)/examples/react-cra"
-- task: CreatePRCommentTask@1
-  inputs:
-    AuthType: "system"
-    Comment: "Deployed to Vercel: $('deploymentUrl')"
+  env:
+    SYSTEM_ACCESS_TOKEN: "$(System.AccessToken)"
 ```
