@@ -1,7 +1,6 @@
-import path from "path";
 import fs from "fs";
 
-export const localizationPath = path.join(__dirname, "/localization");
+export const localizationPath = __dirname;
 export const localizationFile = "localization.json";
 
 export interface LocDict {
