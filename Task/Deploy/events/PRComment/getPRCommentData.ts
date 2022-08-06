@@ -23,9 +23,9 @@ export const getPRCommentData = (event: PullRequestCommentsData): string => {
       .getLocalization("comment.table.row")
       .replace("{name}", event.name)
       .replace("{status}", event.status)
-      .replace("{url}", event.url ?? "")
+      .replace("{url}", `https://${event.url}` ?? "")
       .replace("{inspectorUrl}", event.inspectorUrl ?? "")
-      .replace("{updatedAt}", new Date(event.updatedAt).toString()),
+      .replace("{updatedAt}", new Date(event.updatedAt).toUTCString()),
     loc.getLocalization("comment.break"),
     loc.getLocalization("comment.footer"),
   ];
