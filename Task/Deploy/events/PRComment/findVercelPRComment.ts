@@ -13,7 +13,7 @@ export const findVercelPRComment = (
 
     if (
       element &&
-      element?.content.startsWith(loc.getLocalization("comment.header"))
+      element?.content.startsWith(loc.getLocalization("comment.title"))
     ) {
       // matched comment header - update comment with new content
       return element;
