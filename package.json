@@ -1,6 +1,6 @@
 {
   "name": "medsol-vercel",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rimraf ./build && rimraf ./**.vsix",
-    "build:release": "set NODE_OPTIONS=--openssl-legacy-provider && npm run clean && npm run deps && npm run compile && npm run deps:prune && webpack",
+    "build:release": "npm run clean && npm run deps && npm run compile && npm run deps:prune && webpack",
     "package:dev": "tfx extension create --rev-version --manifest-globs vss-extension.json task.json --overrides-file ./configs/dev.json --root ./build",
     "package:test": "tfx extension create --manifest-globs vss-extension.json --overrides-file ./configs/test.json --root ./build",
     "package:release": "tfx extension create --manifest-globs vss-extension.json --overrides-file ./configs/release.json --root ./build",
