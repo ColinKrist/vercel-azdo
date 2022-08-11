@@ -29,16 +29,20 @@ export const publishPRComment = async (
   const newCommentData = getPRCommentData(commentDTO);
 
   const existingComment = findVercelPRComment(comments);
-  if (existingComment) {
-    await azdoClient.updateComment(
-      existingComment.id,
-      newCommentData,
-      getNewCommentStatus(event, error)
-    );
-  } else {
-    await azdoClient.createComment(
-      newCommentData,
-      getNewCommentStatus(event, error)
-    );
+  try {
+    if (existingComment) {
+      await azdoClient.updateComment(
+        existingComment.id,
+        newCommentData,
+        getNewCommentStatus(event, error)
+      );
+    } else {
+      await azdoClient.createComment(
+        newCommentData,
+        getNewCommentStatus(event, error)
+      );
+    }
+  } catch (error) {
+    console.log('* PRComment.publishPRComment: error - silently failing', error);
   }
 };

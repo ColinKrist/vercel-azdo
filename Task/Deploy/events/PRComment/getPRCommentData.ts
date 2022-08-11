@@ -30,7 +30,5 @@ export const getPRCommentData = (event: PullRequestCommentsData): string => {
     loc.getLocalization("comment.footer"),
   ];
 
-  console.log(prCommentList);
-
   return prCommentList.join("\n");
 };

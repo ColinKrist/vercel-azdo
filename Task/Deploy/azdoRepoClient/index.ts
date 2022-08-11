@@ -68,7 +68,7 @@ export class client {
     content: string | null,
     status: CommentThreadStatus | null
   ): Promise<void> {
-    console.debug("* AzdoRepoClient.updateComment()");
+    console.debug("* AzdoRepoClient.updateComment()", commentThreadId, content, status);
 
     if (content === null && status === null) {
       return;
@@ -176,6 +176,9 @@ export class client {
       "SYSTEM_ACCESS_TOKEN",
       "client.getGitApi()"
     );
+
+    console.log("* azdoRepoClient.getGitApi() - accessToken:", accessToken);
+
     const authHandler: IRequestHandler =
       this.azureDevOpsApiWrapper.getPersonalAccessTokenHandler(accessToken);
 
@@ -211,5 +214,7 @@ export class client {
       ),
       10
     );
+
+    console.log(`* azdoRepoClient.initPRVars() project: ${this.project} | repositoryId: ${this.repositoryId} | pullRequestId: ${this.pullRequestId}`);
   }
 }
