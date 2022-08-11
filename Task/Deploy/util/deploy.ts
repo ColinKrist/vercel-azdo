@@ -1,3 +1,4 @@
+import { truncateStr } from './truncateStr';
 const {
   setResult,
   setVariable,
@@ -35,7 +36,7 @@ export async function deploy(
   for await (const event of createDeployment(clientOptions, deployOptions)) {
     if (event.type != "hashes-calculated") {
       console.log(
-        `[Vercel] - ${event.type} - ${JSON.stringify(event.payload)}`
+        `[Vercel] - ${event.type} - ${truncateStr(JSON.stringify(event.payload), 250)}`
       );
     }
 
