@@ -1,3 +1,13 @@
+> # 📝⚠️ DEPRECATION NOTICE
+>
+> With the news [here](https://vercel.com/changelog/vercel-extension-for-azure-devops-now-available) - Vercel has made their own 1st party task for Azure DevOps. I had the pleasure of speaking with one of their leads of product and they have many great plans for the Azure Repos extension / ecosystem with Vercel.
+>
+> In order to not muddy the ecosystem myself, I've made the decision to archive the repo for historical purposes. Please check out and support the new extension!!
+>
+> Github: https://github.com/vercel/vercel-azure-devops-extension
+> Marketplace: https://marketplace.visualstudio.com/items?itemName=Vercel.vercel-deployment-extension
+
+
 # Vercel for Azure DevOps Pipelines
 
 This extension provides Azure Devops Pipelines Tasks to integrate with Vercel using their @vercel/client npm package
